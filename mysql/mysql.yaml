@@ -12,7 +12,6 @@ spec:
    - port: 3306
      protocol: TCP
  clusterIP: "None"
- 
 ---
 apiVersion: apps/v1
 kind: Deployment
