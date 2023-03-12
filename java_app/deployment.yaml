@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: 5min-dbcheck
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: 5min-dbcheck
   template:
     metadata:
       labels:
-        app: hello-world
+        app: 5min-dbcheck
     spec:
       containers:
-      - name: hello-world
-        image: civo/docker-hello-world:latest
-        env:
-        - name: postgres_username
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret
-              key: username
-        - name: postgres_password
-          value: "123456"
+      - name: 5min-dbcheck
+        image: ericgregory/5min-dbcheck:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        volumeMounts:
+        - name: secrets
+          mountPath: "usr/src/app/secrets"
+      volumes:
+        - name: secrets
+          secret:
+            secretName: test-secret
+            defaultMode: 0400
