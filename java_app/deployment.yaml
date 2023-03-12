@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: 5min-dbcheck
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: 5min-dbcheck
