@@ -16,12 +16,12 @@ spec:
       - name: hello-world
         image: civo/docker-hello-world:latest
         env:
-        - name: postgres_cred
+        - name: postgres_username
           valueFrom:
             secretKeyRef:
               name: postgres-secret
-              key: password
-        - name: PORT_NUMBER
-          value: "9001"
+              key: username
+        - name: postgres_password
+          value: "123456"
         ports:
         - containerPort: 8080
