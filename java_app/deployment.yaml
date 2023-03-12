@@ -20,6 +20,12 @@ spec:
         volumeMounts:
         - name: secrets
           mountPath: "usr/src/app/secrets"
+        env:
+        - name: TOKEN_TEST
+          valueFrom:
+            secretKeyRef:
+              name: api-token
+              key: token
       volumes:
         - name: secrets
           secret:
