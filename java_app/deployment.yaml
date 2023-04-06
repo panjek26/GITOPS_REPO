@@ -29,5 +29,5 @@ spec:
       volumes:
         - name: secrets
           secret:
-            secretName: mysqlpwd
+            secretName: dbpwd
             defaultMode: 0400
