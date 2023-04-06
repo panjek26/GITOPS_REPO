@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 5min-dbcheck
+  name: dbcheck
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: 5min-dbcheck
+      app: dbcheck
   template:
     metadata:
       labels:
-        app: 5min-dbcheck
+        app: dbcheck
     spec:
       containers:
-      - name: 5min-dbcheck
+      - name: dbcheck
         image: ericgregory/5min-dbcheck:latest
         ports:
         - containerPort: 80
