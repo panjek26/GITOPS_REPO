@@ -26,6 +26,11 @@ spec:
             secretKeyRef:
               name: api-token
               key: token
+        - name: TOKEN_RAHARJA
+          valueFrom:
+            secretKeyRef:
+              name: dbraharja
+              key: password
       volumes:
         - name: secrets
           secret:
