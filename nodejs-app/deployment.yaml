@@ -21,16 +21,13 @@ spec:
         - name: secrets
           mountPath: "usr/src/app/secrets"
         env:
-        - name: TOKEN_TEST
-          valueFrom:
-            secretKeyRef:
-              name: api-token
-              key: token
         - name: TOKEN_RAHARJA
           valueFrom:
             secretKeyRef:
               name: dbraharja
-              key: password
+              key: password  #ENCRYPTED PASSWORD with hiden values
+        - name: PASSWORD_RAHARJA
+          value: "panji123"  #plain password as is, it can be read by anyone (unprotected)
       volumes:
         - name: secrets
           secret:
